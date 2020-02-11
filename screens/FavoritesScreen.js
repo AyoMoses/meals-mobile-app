@@ -9,6 +9,11 @@ const FavoritesScreen = props => {
   );
 };
 
+// A CUSTOM HEADER TITLE NAVIGATION FOR THE SCREEN WHEN CLICKED
+FavoritesScreen.navigationOptions = {
+  headerTitle: 'Favorite Picks'
+}
+
 const styles = StyleSheet.create({
   screen: {
     flex: 1,

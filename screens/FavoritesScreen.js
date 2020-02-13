@@ -1,6 +1,8 @@
 import React from 'react';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
 import MealList from '../components/MealList';
+import HeaderButton from '../components/HeaderButton';
 import { MEALS } from '../data/dummy-data';
 
 const FavoritesScreen = props => {
@@ -9,8 +11,19 @@ const FavoritesScreen = props => {
 };
 
 // A CUSTOM HEADER TITLE NAVIGATION FOR THE SCREEN WHEN CLICKED
-FavoritesScreen.navigationOptions = {
-  headerTitle: 'Favorite Picks'
+FavoritesScreen.navigationOptions = navData => {
+  return {
+    headerTitle: 'Favorite Picks',
+    headerLeft: (
+      // WE ADD THE MENU ICON WITH THE CUSTOM HEADERBUTTON YOU CAN USE PLATFORM API TO CHANGE LOOK OF ICON ON DEVICES
+      <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item title="menu" iconName="ios-menu" onPress={() => {
+          navData.navigation.toggleDrawer();
+          // OPEN THE DRAWER AND CLOSE
+        }} />
+      </HeaderButtons>
+    )
+  }
 }
 
 
